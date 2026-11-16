@@ -1,12 +1,12 @@
-# group4 服务器：上传 ESC 并在本机关机后继续训练
+# 服务器：上传 ESC 并在本机关机后继续训练
 
-服务器：`group4@115.156.156.157`，SSH 端口 `2028`。以下操作由你在终端中执行；本项目没有自动连接服务器或开始训练。
+服务器：`<user>@<server>`，SSH 端口 `<port>`。以下操作由你在终端中执行；本项目没有自动连接服务器或开始训练。
 
 ## 1. 本机 PowerShell：上传 ESC 数据
 
 ```powershell
-scp -P 2028 "D:\iLIF_reproduction\artifacts\esc_data.zip" group4@115.156.156.157:/home/group4/
-ssh -p 2028 group4@115.156.156.157
+scp -P <port> "<本地目录>\artifacts\esc_data.zip" <user>@<server>:/home/<user>/
+ssh -p <port> <user>@<server>
 ```
 
 `esc_data.zip` 只包含 ESC 方向/存在性缓存和派生记录，不包含 MAVEN。原始方向缓存与项目保存的官方 Git blob 哈希一致；存在性缓存由 `prepare_esc_existence.py` 按论文附录 B 派生，保留事件对行序，翻转 EFFECT 正例，再合并为正类。这是明确记录的派生数据，不宣称与作者原二分类缓存逐字节一致。
@@ -14,16 +14,16 @@ ssh -p 2028 group4@115.156.156.157
 ## 2. 服务器：获取代码与解压数据
 
 ```bash
-cd /home/group4
+cd /home/<user>
 git clone https://github.com/55feifei/iLIFreproduction.git iLIF_reproduction
 mkdir -p iLIF_reproduction/data
 unzip -o esc_data.zip -d iLIF_reproduction/data/
 cd iLIF_reproduction
 ```
 
-如果服务器无法访问 GitHub，可在本机打包源码后用 `scp`/`rsync` 上传，解压到 `/home/group4/iLIF_reproduction`。`git pull` 或代码更新不会清空 `runs/`；已有训练正在使用这些文件时，应在训练结束后更新。
+如果服务器无法访问 GitHub，可在本机打包源码后用 `scp`/`rsync` 上传，解压到 `/home/<user>/iLIF_reproduction`。`git pull` 或代码更新不会清空 `runs/`；已有训练正在使用这些文件时，应在训练结束后更新。
 
-数据位置：`/home/group4/iLIF_reproduction/data/esc/`，其下有方向任务的 train/dev 文件，以及 `exist/` 下的二分类 train/dev 文件。代码已经兼容数据路径，无需手动修改训练代码。
+数据位置：`/home/<user>/iLIF_reproduction/data/esc/`，其下有方向任务的 train/dev 文件，以及 `exist/` 下的二分类 train/dev 文件。代码已经兼容数据路径，无需手动修改训练代码。
 
 ## 3. 服务器：首次配置环境与 BERT
 
@@ -48,8 +48,8 @@ python -c "from transformers import BertModel; BertModel.from_pretrained('bert-b
 
 ```bash
 python run_ablations.py --preflight-only \
-  --esc-data /home/group4/iLIF_reproduction/data/esc \
-  --model-path /home/group4/iLIF_reproduction/models/bert-base-uncased
+  --esc-data /home/<user>/iLIF_reproduction/data/esc \
+  --model-path /home/<user>/iLIF_reproduction/models/bert-base-uncased
 ```
 
 看到 `"status": "passed"` 后再启动。否则按输出的 `errors` 处理缺失依赖、CUDA或文件。
@@ -59,11 +59,11 @@ python run_ablations.py --preflight-only \
 确认已进入项目根目录并激活正确环境，然后执行：
 
 ```bash
-cd /home/group4/iLIF_reproduction
+cd /home/<user>/iLIF_reproduction
 conda activate ilif-ablation
 nohup python -u run_ablations.py \
-  --esc-data /home/group4/iLIF_reproduction/data/esc \
-  --model-path /home/group4/iLIF_reproduction/models/bert-base-uncased \
+  --esc-data /home/<user>/iLIF_reproduction/data/esc \
+  --model-path /home/<user>/iLIF_reproduction/models/bert-base-uncased \
   > esc_ablation.log 2>&1 < /dev/null &
 echo $! > esc_ablation.pid
 ```
@@ -84,13 +84,13 @@ tail -n 50 esc_ablation.log
 本机 PowerShell：
 
 ```powershell
-ssh -p 2028 group4@115.156.156.157
+ssh -p <port> <user>@<server>
 ```
 
 服务器：
 
 ```bash
-cd /home/group4/iLIF_reproduction
+cd /home/<user>/iLIF_reproduction
 tail -f esc_ablation.log
 ```
 
@@ -119,6 +119,6 @@ python analyze_ablations.py
 本机 PowerShell 下载结果：
 
 ```powershell
-scp -P 2028 group4@115.156.156.157:/home/group4/iLIF_reproduction/ABLATION_RESULTS.md "D:\iLIF_reproduction\artifacts\server_ABLATION_RESULTS.md"
-scp -P 2028 group4@115.156.156.157:/home/group4/iLIF_reproduction/artifacts/ablation_comparison.csv "D:\iLIF_reproduction\artifacts\server_ablation_comparison.csv"
+scp -P <port> <user>@<server>:/home/<user>/iLIF_reproduction/ABLATION_RESULTS.md "<本地目录>\artifacts\server_ABLATION_RESULTS.md"
+scp -P <port> <user>@<server>:/home/<user>/iLIF_reproduction/artifacts/ablation_comparison.csv "<本地目录>\artifacts\server_ablation_comparison.csv"
 ```

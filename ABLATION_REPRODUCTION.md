@@ -15,7 +15,7 @@
 
 按项目协议使用 seed=209、文档级 KFold、固定开发集；保留作者缓存的标签和事件对顺序。训练使用 argmax 建图，评估迭代建图阈值为 0.6，最终输出为 argmax。无方向图的相邻图差以双向邻接矩阵计算，单条无向边的增删计 2；单次更新变体仅最终预测计入 loss，CGE 仍参与反向传播。
 
-针对 `group4@115.156.156.157:2028` 的上传、解压、后台训练和日志命令见 [SERVER_ESC_RUN.md](SERVER_ESC_RUN.md)。可用 `prepare_esc_existence.py --archive artifacts/esc_data.zip` 生成单独的 ESC 数据包，再解压到项目 `data/` 下，得到 `data/esc/`。
+服务器上的上传、解压、后台训练和日志命令见 [SERVER_ESC_RUN.md](SERVER_ESC_RUN.md)。可用 `prepare_esc_existence.py --archive artifacts/esc_data.zip` 生成单独的 ESC 数据包，再解压到项目 `data/` 下，得到 `data/esc/`。
 
 如果只有方向任务的两份缓存，可运行 `python prepare_esc_existence.py --esc-data data --archive artifacts/esc_data.zip`：按附录 B 翻转 EFFECT 事件对并生成二分类缓存，记录来源，不覆盖原方向数据。派生缓存不是作者原二分类文件的字节副本。
 

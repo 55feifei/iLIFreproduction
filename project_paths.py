@@ -19,5 +19,5 @@ def esc_data_path(value=None):
 ESC_DATA = esc_data_path()
 # The original, optional MAVEN preprocessing sources must not be required just
 # to import common.py on a different machine.
-AUTHOR = Path(os.environ['ILIF_AUTHOR_SOURCE']).expanduser().resolve() if os.environ.get('ILIF_AUTHOR_SOURCE') else next(
-    PROJECT.glob('刘程工作/2.实验代码/2.1*'), PROJECT / 'author_source')
+AUTHOR = (Path(os.environ['ILIF_AUTHOR_SOURCE']).expanduser().resolve()
+          if os.environ.get('ILIF_AUTHOR_SOURCE') else PROJECT / 'author_source')

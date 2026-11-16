@@ -40,6 +40,7 @@ python -m pip install -r requirements-reproduction.txt
 - `models/bert-base-uncased/`：`config.json`、`vocab.txt`、`tokenizer.json`、`pytorch_model.bin`。`download_model.py` 可下载并校验；也可从 Hugging Face 获取。
 - ESC 作者特征缓存：方向任务 train/dev 文件及 `exist/` 下的二分类 train/dev 文件。代码默认查找 `data/esc`、`data`、`../reference_source/data/database`，也可用 `ILIF_ESC_DATA` 或 `--esc-data` 指定。
 - MAVEN：由 `prepare_maven.py` 从作者原始数据生成 `data/maven/train.pkl`、`dev.pkl`、`test.pkl`（首 mention、窗口 254、步长 64）。
+- 作者源码/数据目录（可选）：`prepare_maven.py` 和部分源码审计脚本通过 `ILIF_AUTHOR_SOURCE` 指向该目录；不设置时默认为仓库同级的 `author_source/`。
 
 官方源码快照 `official_publication_source/` 未随本仓库分发；如运行 `checks.py --publication` 或 `audit_publication_version.py` 的等价性检查，请从作者仓库 [LchengC/iLIF](https://github.com/LchengC/iLIF) 获取对应提交 `f00df860`（2024-06-03）。主训练不依赖该快照。
 
