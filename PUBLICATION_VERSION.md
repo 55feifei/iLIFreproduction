@@ -1,8 +1,8 @@
-> 说明：官方源码快照 `official_publication_source/` 及 `artifacts/` 下的源码审计文件不随本仓库分发；如需运行等价性检查，请从作者仓库获取提交 `f00df860`。
+> 说明：官方源码快照 `official_publication_source/` 不随本仓库分发；正文提到的其它 artifacts 审计文件需在获取官方快照后运行审计脚本生成。如需运行等价性检查，请从作者仓库获取提交 `f00df860`。
 
 # 发表前版本与提供版本的差异
 
-本文保存源码版本和历史适配差异。当前主实现 `paper_algorithm_v1` 已进一步修正论文与源码的算法差异，详见 [PAPER_ALGORITHM.md](PAPER_ALGORITHM.md)；下文关于保留 ReLU、原停止条件等说明属于历史源码路径。
+本文保存源码版本和历史适配差异。当前主实现 `paper_algorithm_v4` 已进一步修正论文与源码的算法差异，详见 [PAPER_ALGORITHM.md](PAPER_ALGORITHM.md)；下文关于保留 ReLU、原停止条件等说明属于历史源码路径。
 
 主复现采用官方仓库在论文发表前的最新快照 [f00df860（2024-06-03）](https://github.com/LchengC/iLIF/commit/f00df860f372eaa7fdb5924334ba0f50d41e3672)。图编码文件初次发布于2024-05-21，原实现直接传入 `source→target` 边索引。
 
