@@ -15,7 +15,7 @@
 
 ## 2. Python 环境与核心依赖
 
-- Python 3.8.20（Anaconda），实测解释器：`F:\ANACONDA\envs\ilif\python.exe`
+- Python 3.8.20（Anaconda），本机使用 conda 环境 `ilif`；换机时按第 3 节创建同名环境
 - 已在本机实际导入验证：
 
 | 依赖 | 版本 |
@@ -72,10 +72,10 @@ python -c "import torch, transformers, torch_geometric; print(torch.__version__,
 在仓库根目录执行（以下 python 路径为本机实测值，换机时替换）：
 
 ```powershell
-& F:\ANACONDA\envs\ilif\python.exe check_paper_algorithm.py
-& F:\ANACONDA\envs\ilif\python.exe check_paper_fusion.py
-& F:\ANACONDA\envs\ilif\python.exe run_publication.py --pilots-only
-& F:\ANACONDA\envs\ilif\python.exe verify_paper_pilots.py
+python check_paper_algorithm.py
+python check_paper_fusion.py
+python run_publication.py --pilots-only
+python verify_paper_pilots.py
 ```
 
 前两项应输出 `"status": "passed"`。`--pilots-only` 为三个短试跑（ESC 方向、ESC 存在性、MAVEN 方向），各训练 8 篇、评估 4 篇、1 轮，不会自动进入正式训练；检查证据写入 `artifacts/paper_algorithm_checks.json` 和 `artifacts/paper_algorithm_pilots.json`。
@@ -84,20 +84,20 @@ python -c "import torch, transformers, torch_geometric; print(torch.__version__,
 
 ```powershell
 # 正式队列：ESC 方向五折 → ESC 存在性五折 → MAVEN 方向
-& F:\ANACONDA\envs\ilif\python.exe run_publication.py
+python run_publication.py
 
 # 或单项运行（默认 paper_algorithm_v4）
-& F:\ANACONDA\envs\ilif\python.exe run.py --dataset esc --task direction --checkpoint-bert --resume
-& F:\ANACONDA\envs\ilif\python.exe run.py --dataset esc --task existence --checkpoint-bert --resume
-& F:\ANACONDA\envs\ilif\python.exe run.py --dataset maven --checkpoint-bert --resume
+python run.py --dataset esc --task direction --checkpoint-bert --resume
+python run.py --dataset esc --task existence --checkpoint-bert --resume
+python run.py --dataset maven --checkpoint-bert --resume
 
 # 全部训练结束后核验并生成主表
-& F:\ANACONDA\envs\ilif\python.exe finalize_main.py
+python finalize_main.py
 
 # 单模型推理与报告
-& F:\ANACONDA\envs\ilif\python.exe infer.py --checkpoint runs\esc_direction_full_incoming_paper_v3\fold_1\best.pt --output artifacts\paper_fold1_inference.json
-& F:\ANACONDA\envs\ilif\python.exe report.py
-& F:\ANACONDA\envs\ilif\python.exe analyze_results.py
+python infer.py --checkpoint runs\esc_direction_full_incoming_paper_v3\fold_1\best.pt --output artifacts\paper_fold1_inference.json
+python report.py
+python analyze_results.py
 ```
 
 ## 7. 资源占用与注意事项
