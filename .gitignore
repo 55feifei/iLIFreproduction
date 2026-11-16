@@ -1,0 +1,30 @@
+# Training outputs, checkpoints and logs (tens of GB)
+runs/
+
+# Pretrained BERT weights and preprocessed datasets
+models/
+data/
+
+# Python caches
+__pycache__/
+*.pyc
+
+# Checkpoints and temp files anywhere
+*.pt
+*.tmp
+
+# Local validation dependencies; never part of a release bundle
+.cache/
+.testenv/
+.test-deps/
+.venv-ilif/
+
+# Server handoff packages, report working trees and packaged archives
+ilif_esc_handoff_*/
+reports/**/_work/
+reports/**/*.zip
+artifacts/*.zip
+
+# OS metadata
+.DS_Store
+Thumbs.db

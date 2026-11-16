@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "algorithm_profile": "paper_algorithm_v4",
+  "tests": 13,
+  "failures": 0,
+  "errors": 0,
+  "device": "cpu",
+  "benchmark_training": false
+}

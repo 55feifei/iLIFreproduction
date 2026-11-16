@@ -1,0 +1,56 @@
+{
+  "commit": "f00df860f372eaa7fdb5924334ba0f50d41e3672",
+  "date": "2024-06-03T09:43:31Z",
+  "files": {
+    "model/CGE.py": {
+      "publication_sha256": "4000082806ef0ff5ada32ed7fb73a16d6f26f5fe9a2acfea19cbdf18a424fb9d",
+      "provided_sha256": "fdede4ed80343cbde1bc84e409037ab7c5458f992bfd42e9e86c056b36b94072",
+      "equal_ignoring_line_endings": false
+    },
+    "model/model.py": {
+      "publication_sha256": "7c14071003014ea284fd04b7718fef2d7c04c5c7490c1871f1eb13d769ef9cb2",
+      "provided_sha256": "ea1a8f6d280cdc8311fdf09971de79cc094658b40b8a6dd000cbea9324d41198",
+      "equal_ignoring_line_endings": false
+    },
+    "parameter.py": {
+      "publication_sha256": "7ba9df9b4d5122e8664e4596b517423bb608d5f684a2a4151b1a79de81fe6f5a",
+      "provided_sha256": "7ba9df9b4d5122e8664e4596b517423bb608d5f684a2a4151b1a79de81fe6f5a",
+      "equal_ignoring_line_endings": true
+    },
+    "utils.py": {
+      "publication_sha256": "c3d8e55f6be6323c4f36ca298720c78d14c1ad73aa0e09147b70ce637eeb0a4e",
+      "provided_sha256": "e46bb6f4dc0f4006ee09d04d1cda8d4a4972567808548002976293395d651165",
+      "equal_ignoring_line_endings": false
+    },
+    "main.py": {
+      "publication_sha256": "f71198d1642eebcdb67ced9831dd33dafee26a8f0b5d7a0f0055e127aee1d7e2",
+      "provided_sha256": "f71198d1642eebcdb67ced9831dd33dafee26a8f0b5d7a0f0055e127aee1d7e2",
+      "equal_ignoring_line_endings": true
+    },
+    "requirements.txt": {
+      "publication_sha256": "c2e828d27100387de773be7d775886874c54f84fbd7242447f2f0b8e7cd393b7",
+      "provided_sha256": "989d8208bc7b56a50367e543fd7c4df38253964363687ee910c300e98ad2f687",
+      "equal_ignoring_line_endings": false
+    }
+  },
+  "data": {
+    "train": {
+      "local_git_blob_sha1": "a621596567f02dc2afcdbfbc0c9d3e23fa827f67",
+      "publication_git_blob_sha1": "a621596567f02dc2afcdbfbc0c9d3e23fa827f67",
+      "matches": true,
+      "existence_gold_by_unordered_pair_equal": true,
+      "documents_with_changed_pair_order": 221,
+      "reordered_positive_pairs": 2674,
+      "reordered_negative_pairs": 0
+    },
+    "dev": {
+      "local_git_blob_sha1": "f453e064abde35b0d4baea36fbeb0d6149845b1d",
+      "publication_git_blob_sha1": "f453e064abde35b0d4baea36fbeb0d6149845b1d",
+      "matches": true,
+      "existence_gold_by_unordered_pair_equal": true,
+      "documents_with_changed_pair_order": 23,
+      "reordered_positive_pairs": 193,
+      "reordered_negative_pairs": 0
+    }
+  }
+}

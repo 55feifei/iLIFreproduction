@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "device": "cpu",
+  "paper_settings": {
+    "fusion_policy": "paper",
+    "beta_intra": 0.7,
+    "beta_inter": 0.3,
+    "fusion_version": "typed_adjacency_v1"
+  },
+  "formula_and_zero_activation_case": true,
+  "sole_branch_unscaled": true,
+  "missing_both_zero": true,
+  "relation_order_forward_and_gradients": true,
+  "all_parameter_gradients_match": true,
+  "legacy_config_compatible": true,
+  "mixed_resume_rejected": true,
+  "invalid_weights_rejected": true,
+  "self_loop_rule": "Self-loops count as their explicitly declared relation type."
+}

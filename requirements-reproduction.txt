@@ -1,0 +1,16 @@
+# Verified on Windows, Python 3.8.20, NVIDIA driver with CUDA 11.3 compatibility.
+--extra-index-url https://download.pytorch.org/whl/cu113
+--find-links https://data.pyg.org/whl/torch-1.11.0+cu113.html
+torch==1.11.0+cu113
+transformers==4.21.1
+tokenizers==0.12.1
+huggingface-hub==0.34.4
+numpy==1.22.4
+scipy==1.10.1
+scikit-learn==1.0.2
+torch-geometric==2.1.0.post1
+torch-scatter==2.0.9
+torch-sparse==0.6.13
+matplotlib==3.5.3
+networkx==3.1
+tqdm==4.67.1

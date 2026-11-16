@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "algorithm_profile": "paper_algorithm_v4",
+  "variants": [
+    "none",
+    "no_direction",
+    "no_heterogeneity",
+    "no_iteration"
+  ],
+  "tasks": [
+    "direction",
+    "existence"
+  ],
+  "tests": 11,
+  "failures": 0,
+  "errors": 0,
+  "torch_version": "1.11.0+cu113",
+  "device": "cpu",
+  "benchmark_training": false,
+  "encoder": "tiny test embedding; real project graph encoder, classifier and focal loss"
+}
